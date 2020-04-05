@@ -9,7 +9,7 @@
             <h2>List of all customers</h2>
          </div>
          <div class="col-sm-6">
-            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Employee</span></a>
+            <a href="{{url("/customers/create")}}" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Employee</span></a>
          </div>
       </div>
    </div>
@@ -33,7 +33,7 @@
                <td>{{$customer->country}}</td>
                <td>{{$customer->VAT}}</td>
                <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+                  <a href="{{url("/customers/create")}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
                </td>
             </tr>
          @empty

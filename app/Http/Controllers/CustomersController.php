@@ -27,7 +27,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.customers.create');
     }
 
     /**
@@ -38,7 +38,18 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'postalCode'  => 'required|numeric',
+            'city' => 'required',
+            'country' => 'required',
+            'VAT' => 'required'
+        ]);
+
+        Customer::create($request->all());
+
+        return redirect()->action('CustomersController@index')->flash('status', 'Customer was added!');;
     }
 
     /**
@@ -60,7 +71,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        return view('pages.customers.edit')->with('customer', $customer);
     }
 
     /**

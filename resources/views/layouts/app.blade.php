@@ -22,6 +22,12 @@
             @include('molecules.nav')
             <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="mt-5 pt-2"></div>
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    <div class="mt-5 pt-2"></div>
+                @endif
                 @yield('content')
             </main>
         </div>
